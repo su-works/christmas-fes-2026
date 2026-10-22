@@ -1,0 +1,112 @@
+
+/* ページ全体 */
+body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  background-color: #F5F0E6;
+  color: #55483E;
+  font-family: sans-serif;
+}
+
+/* ページ上部 */
+header {
+  background-color: #315A43;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+header p {
+  margin-bottom: 0;
+}
+
+/* メインコンテンツ */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 見出し */
+h2 {
+  color: #315A43;
+  border-bottom: 2px solid #315A43;
+  padding-bottom: 8px;
+  margin-top: 30px;
+}
+
+h3 {
+  color: #315A43;
+  font-size: 20px;
+}
+
+/* イベントごとのエリア */
+article {
+  background-color: #FFFCF6;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border-left: 5px solid #315A43;
+}
+
+/* 詳しく見るボタン */
+button {
+  color: white;
+  background-color: #B84A4A;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #963939;
+}
+
+/* 詳細エリア */
+article div {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: #F5F0E6;
+  border-radius: 6px;
+}
+
+/* 参加案内 */
+section:last-child {
+  margin-bottom: 40px;
+}
+
+/* ページ下部 */
+footer {
+  background-color: #315A43;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+/* 小さい画面向け */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  article {
+    padding: 15px;
+  }
+}
