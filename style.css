@@ -18,7 +18,7 @@ body {
   font-family: sans-serif;
 }
 
-/* ページ上部 */
+
 /* ページ上部：メインビジュアル */
 .hero {
   background-color: var(--green);
@@ -108,7 +108,12 @@ h3 {
   box-shadow: 0 4px 14px rgb(50 45 35 / 8%);
 }
 
-/* ボタンを押しやすく、統一する */
+@media (max-width: 600px) {
+  #events .event-card {
+    padding: 18px;
+  }
+  
+}/* ボタンを押しやすく、統一する */
 button {
   color: white;
   background-color: var(--red);
