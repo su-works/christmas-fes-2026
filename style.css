@@ -19,19 +19,60 @@ body {
 }
 
 /* ページ上部 */
-header {
+/* ページ上部：メインビジュアル */
+.hero {
   background-color: var(--green);
   color: white;
   text-align: center;
-  padding: clamp(48px, 8vw, 88px) 20px;
+  padding: clamp(56px, 9vw, 100px) 20px;
 }
 
-/* タイトルを主役に */
-h1 {
+.hero-label {
+  margin: 0 0 20px;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  font-weight: bold;
+}
+
+.hero h1 {
   max-width: 850px;
   margin: 0 auto;
-  font-size: clamp(30px, 6vw, 52px);
-  line-height: 1.3;
+  font-size: clamp(32px, 6vw, 60px);
+  line-height: 1.4;
+}
+
+.hero h1 span {
+  display: inline-block;
+}
+
+.hero h1 .hero-year {
+  display: block;
+  margin-top: 4px;
+  color: #E8D39A;
+  font-size: 0.65em;
+  letter-spacing: 0.12em;
+}
+
+.hero-copy {
+  margin: 24px 0 0;
+  font-size: clamp(16px, 2.5vw, 21px);
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  border: 1px solid white;
+  border-radius: 999px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.hero-button:hover {
+  background-color: white;
+  color: var(--green);
 }
 
 /* キャッチコピーはタイトルより控えめに */
