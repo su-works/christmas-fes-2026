@@ -1,4 +1,4 @@
-/* 共通の色と寸法 */
+/* 共通の色 */
 :root {
   --green: #315A43;
   --cream: #F5F0E6;
@@ -6,32 +6,32 @@
   --text: #55483E;
   --red: #B84A4A;
   --red-hover: #963939;
+  --gold: #E8D39A;
 }
 
 /* ページ全体 */
 body {
   margin: 0;
+  font-family: sans-serif;
   font-size: 16px;
   line-height: 1.8;
-  background-color: var(--cream);
   color: var(--text);
-  font-family: sans-serif;
+  background-color: var(--cream);
 }
 
-
-/* ページ上部：メインビジュアル */
+/* ページ上部 */
 .hero {
-  background-color: var(--green);
-  color: white;
-  text-align: center;
   padding: clamp(56px, 9vw, 100px) 20px;
+  color: white;
+  background-color: var(--green);
+  text-align: center;
 }
 
 .hero-label {
   margin: 0 0 20px;
   font-size: 13px;
-  letter-spacing: 0.18em;
   font-weight: bold;
+  letter-spacing: 0.18em;
 }
 
 .hero h1 {
@@ -48,7 +48,7 @@ body {
 .hero h1 .hero-year {
   display: block;
   margin-top: 4px;
-  color: #E8D39A;
+  color: var(--gold);
   font-size: 0.65em;
   letter-spacing: 0.12em;
 }
@@ -58,6 +58,7 @@ body {
   font-size: clamp(16px, 2.5vw, 21px);
 }
 
+/* イベント一覧へのリンク */
 .hero-button {
   display: inline-block;
   margin-top: 30px;
@@ -65,30 +66,30 @@ body {
   border: 1px solid white;
   border-radius: 999px;
   color: white;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
   transition: background-color 0.2s, color 0.2s;
 }
 
 .hero-button:hover {
-  background-color: white;
   color: var(--green);
+  background-color: white;
 }
 
 /* メインコンテンツ */
 main {
+  box-sizing: border-box;
   width: min(100% - 32px, 900px);
   margin: 0 auto;
   padding: 24px 0 48px;
-  box-sizing: border-box;
 }
 
-/* 見出し */
+/* セクション見出し */
 h2 {
-  color: var(--green);
-  border-bottom: 2px solid var(--green);
-  padding-bottom: 8px;
   margin: 48px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--green);
+  color: var(--green);
   font-size: 26px;
 }
 
@@ -98,37 +99,32 @@ h3 {
   line-height: 1.45;
 }
 
-/* イベントカードを並べるレイアウト */
+/* イベントカードの並び */
 .event-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  align-items: stretch;
 }
+
 /* イベントカード */
 #events .event-card {
-  background-color: var(--card);
+  margin: 0;
   padding: 24px;
-  margin: 20px 0;
-  border-radius: 12px;
   border-top: 4px solid var(--red);
+  border-radius: 12px;
+  background-color: var(--card);
   box-shadow: 0 4px 14px rgb(50 45 35 / 8%);
 }
 
-@media (max-width: 600px) {
-  #events .event-card {
-    padding: 18px;
-  }
-  
-}/* ボタンを押しやすく、統一する */
+/* 詳細ボタン */
 button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 999px;
   color: white;
   background-color: var(--red);
-  border: none;
-  padding: 12px 20px;
-  border-radius: 999px;
   cursor: pointer;
-  font: inherit;
+  font-family: inherit;
   font-size: 15px;
   font-weight: bold;
   transition: background-color 0.2s, transform 0.2s;
@@ -139,27 +135,31 @@ button:hover {
   transform: translateY(-1px);
 }
 
-/* キーボード操作時のフォーカス */
-button:focus-visible,
-a:focus-visible {
-  outline: 3px solid #D6B66D;
-  outline-offset: 3px;
-}
-
 /* 詳細エリア */
 article div {
   margin-top: 16px;
   padding: 14px;
-  background-color: var(--cream);
   border-radius: 8px;
+  background-color: var(--cream);
+}
+
+/* キーボード操作時のフォーカス表示 */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.hero-button:focus-visible {
+  outline-color: white;
 }
 
 /* ページ下部 */
 footer {
-  background-color: var(--green);
-  color: white;
-  text-align: center;
   padding: 28px 20px;
+  color: white;
+  background-color: var(--green);
+  text-align: center;
   font-size: 14px;
 }
 
@@ -167,7 +167,14 @@ footer p {
   margin: 5px 0;
 }
 
-/* 小さい画面向け */
+/* タブレット・スマートフォン */
+@media (max-width: 700px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* スマートフォン */
 @media (max-width: 600px) {
   body {
     font-size: 15px;
@@ -178,18 +185,15 @@ footer p {
   }
 
   h2 {
-    font-size: 22px;
     margin-top: 38px;
+    font-size: 22px;
   }
 
   h3 {
     font-size: 19px;
   }
 
-  article {
+  #events .event-card {
     padding: 18px;
   }
-  .event-grid {
-  grid-template-columns: 1fr;
-}
 }
