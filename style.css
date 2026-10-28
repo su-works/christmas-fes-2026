@@ -75,12 +75,6 @@ body {
   color: var(--green);
 }
 
-/* キャッチコピーはタイトルより控えめに */
-header p {
-  margin: 18px 0 0;
-  font-size: clamp(16px, 2.5vw, 21px);
-}
-
 /* メインコンテンツ */
 main {
   width: min(100% - 32px, 900px);
@@ -105,12 +99,12 @@ h3 {
 }
 
 /* イベントカード */
-article {
+#events .event-card {
   background-color: var(--card);
   padding: 24px;
   margin: 20px 0;
   border-radius: 12px;
-  border-left: 5px solid var(--green);
+  border-top: 4px solid var(--red);
   box-shadow: 0 4px 14px rgb(50 45 35 / 8%);
 }
 
