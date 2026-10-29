@@ -28,13 +28,19 @@
 </header>
   
   <main>
-    <section>
-      <h2>イベント案内</h2>
+    <section aria-labelledby="guide-heading">
+      <h2 id="guide-heading">イベント案内</h2>
       <p>親子で楽しめるクリスマスイベントを紹介します。</p>
+      <dl class="event-facts">
+        <div><dt>開催日</dt><dd>2026年12月19日（土）・20日（日）</dd></div>
+        <div><dt>開催時間</dt><dd>10:00〜16:00</dd></div>
+        <div><dt>会場</dt><dd>○○○○</dd></div>
+      </dl>
+      <p class="sample-note">※このサイトとイベントはポートフォリオ制作のための架空のサンプルです。申し込みフォームはデモで、入力内容は送信・保存されません。</p>
     </section>
 
-    <section id="events">
-      <h2>イベント一覧</h2>
+    <section id="events" aria-labelledby="events-heading">
+      <h2 id="events-heading">イベント一覧</h2>
       
       <div class="event-grid">  
       <article class="event-card">
@@ -51,7 +57,7 @@
     <li><strong>参加費：</strong>3,000円（材料費込み）</li>
     </ul>
 
-    <button type="button"
+    <button class="detail-toggle" type="button"
     aria-expanded="false"
     aria-controls="wreath-detail">
     詳しく見る
@@ -76,6 +82,7 @@
       手ぶらでOKです。汚れてもよい服装でお越しください。
       小さなお子さまは保護者の方といっしょに制作します。
     </p>
+    <a class="apply-link" href="#apply" data-event="クリスマスリースづくり">このイベントに申し込む（デモ）</a>
   </div>
   </article>
 
@@ -92,7 +99,7 @@
     <li><strong>参加費：</strong>500円（材料費込み）</li>
     </ul>
 
-    <button type="button"
+    <button class="detail-toggle" type="button"
     aria-expanded="false"
     aria-controls="card-detail">
     詳しく見る
@@ -112,6 +119,7 @@
     <p>
       はさみやのりなど、道具はすべてご用意しています。完成したカードはお持ち帰りいただけます。ご家族みんなで参加するのもおすすめです。
     </p>
+    <a class="apply-link" href="#apply" data-event="クリスマスカード工作">このイベントに申し込む（デモ）</a>
   </div>
   </article>
 
@@ -127,7 +135,7 @@
     <li><strong>参加費：</strong>無料</li>
     </ul>
 
-    <button type="button"
+    <button class="detail-toggle" type="button"
     aria-expanded="false"
     aria-controls="story-detail">
     詳しく見る
@@ -148,6 +156,7 @@
     <p>
       マットの上にお座りいただきます。途中の退出や授乳、おむつ替えも気軽にどうぞ。ベビーカーは会場入口に置けます。
     </p>
+    <a class="apply-link" href="#apply" data-event="親子で楽しむ冬のおはなし会">このイベントに申し込む（デモ）</a>
   </div>
   </article>
     </section>
@@ -155,7 +164,46 @@
     <section>
       <h2>参加案内</h2>
       <p>ご家族で楽しめる、クリスマスのワークショップを開催します。</p>
-      <p>開催日時や会場などの詳細は、決まり次第お知らせします。</p>
+      <p>各イベントの「詳しく見る」から内容を確認し、申し込みフォームのデモへ進めます。</p>
+    </section>
+
+    <section id="apply" aria-labelledby="apply-heading">
+      <h2 id="apply-heading">イベント申し込み（デモ）</h2>
+      <p>入力内容の確認用デモです。実際の申し込みやデータの送信・保存は行いません。</p>
+      <form id="application-form">
+        <div class="form-field">
+          <label for="event-name">イベント名 <span>必須</span></label>
+          <select id="event-name" name="event" required>
+            <option value="">イベントを選んでください</option>
+            <option>クリスマスリースづくり</option>
+            <option>クリスマスカード工作</option>
+            <option>親子で楽しむ冬のおはなし会</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="event-date">参加日 <span>必須</span></label>
+          <select id="event-date" name="date" required>
+            <option value="">参加日を選んでください</option>
+            <option>2026年12月19日（土）</option>
+            <option>2026年12月20日（日）</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="guardian-name">保護者のお名前 <span>必須</span></label>
+          <input id="guardian-name" name="guardian-name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">メールアドレス <span>必須</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="attendees">参加人数 <span>必須</span></label>
+          <input id="attendees" name="attendees" type="number" min="1" max="10" value="1" required>
+          <small>1〜10人で入力してください。</small>
+        </div>
+        <button class="submit-button" type="submit">申し込み内容を確認する（デモ）</button>
+      </form>
+      <p id="form-message" class="form-message" role="status" aria-live="polite" tabindex="-1" hidden></p>
     </section>
 
   </main>
@@ -163,7 +211,7 @@
   <footer>
     <p>おやこで楽しむクリスマスフェス2026</p>
     <p>親子でつくる、冬の特別な思い出。</p>
-    <small>※本サイトはポートフォリオ制作のための架空のイベントです。</small>
+    <small>※本サイトはポートフォリオ制作のための架空イベントのサンプルです。</small>
   </footer>
 </body>
 </html>
