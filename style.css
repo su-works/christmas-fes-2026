@@ -256,3 +256,14 @@ footer p {
   #application-form { padding: 18px; }
   .event-facts div { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* バナー画像 */
+.banner {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin: 24px auto 32px;
+  border-radius: 0;
+}
+
