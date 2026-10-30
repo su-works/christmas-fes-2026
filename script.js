@@ -1,53 +1,36 @@
 
-// クリスマスリースづくりのボタン
-const button = document.querySelector(
-  '[aria-controls="wreath-detail"]'
-);
+// 各イベントの詳細を開閉します。
+document.querySelectorAll(".detail-toggle").forEach(function (button) {
+  const detail = document.getElementById(button.getAttribute("aria-controls"));
+  const detailLabel = button.textContent.trim();
 
-const detail = document.getElementById("wreath-detail");
-
-button.addEventListener("click", function () {
-  detail.hidden = !detail.hidden;
-
-  if (detail.hidden) {
-    button.textContent = "詳しく見る";
-  } else {
-    button.textContent = "閉じる";
-  }
+  button.addEventListener("click", function () {
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+    detail.hidden = isExpanded;
+    button.setAttribute("aria-expanded", String(!isExpanded));
+    button.textContent = isExpanded ? detailLabel : "閉じる";
+  });
 });
 
-
-// クリスマスカード工作のボタン
-const cardButton = document.querySelector(
-  '[aria-controls="card-detail"]'
-);
-
-const cardDetail = document.getElementById("card-detail");
-
-cardButton.addEventListener("click", function () {
-  cardDetail.hidden = !cardDetail.hidden;
-
-  if (cardDetail.hidden) {
-    cardButton.textContent = "詳しく見る";
-  } else {
-    cardButton.textContent = "閉じる";
-  }
+// 詳細から申し込みへ進むと、選んだイベント名をフォームに入れます。
+const eventSelect = document.getElementById("event-name");
+document.querySelectorAll(".apply-link").forEach(function (link) {
+  link.addEventListener("click", function () {
+    eventSelect.value = link.dataset.event;
+  });
 });
 
+// フォームはデモです。送信を止めてページ内に受付メッセージを表示します。
+const form = document.getElementById("application-form");
+const formMessage = document.getElementById("form-message");
 
-// 冬のおはなし会のボタン
-const storyButton = document.querySelector(
-  '[aria-controls="story-detail"]'
-);
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  formMessage.textContent = "デモ受付が完了しました。入力内容は送信・保存されていません。";
+  formMessage.hidden = false;
+  formMessage.focus();
+});
 
-const storyDetail = document.getElementById("story-detail");
-
-storyButton.addEventListener("click", function () {
-  storyDetail.hidden = !storyDetail.hidden;
-
-  if (storyDetail.hidden) {
-    storyButton.textContent = "詳しく見る";
-  } else {
-    storyButton.textContent = "閉じる";
-  }
+form.addEventListener("input", function () {
+  formMessage.hidden = true;
 });
